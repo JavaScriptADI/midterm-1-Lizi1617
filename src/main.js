@@ -2435,6 +2435,366 @@ console.log(countEvenDigits(9876543210));  // 5 (Even digits: 8, 6, 4, 2, 0)
 console.log(countEvenDigits(13579));  // 0 (No even digits)
 console.log(countEvenDigits(-24680));  // 5 (Even digits: 2, 4, 6, 8, 0)
 
+//131
+function prefixSums(arr) {
+    let result = [];
+    let sum = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        sum += arr[i];
+        result.push(sum);
+    }
+
+    return result;
+}
+
+const inputArray = [1, 2, 3, 4, 5];
+const result = prefixSums(inputArray);
+console.log(result);  // Output: [1, 3, 6, 10, 15]
+
+//132
+function findPrimeFactors(num) {
+    let factors = [];
+    while (num % 2 === 0) {
+        if (!factors.includes(2)) {
+            factors.push(2);
+        }
+        num /= 2;
+    }
+
+    for (let i = 3; i * i <= num; i += 2) {
+        while (num % i === 0) {
+            if (!factors.includes(i)) {
+                factors.push(i);
+            }
+            num /= i;
+        }
+    }
+
+    if (num > 2) {
+        factors.push(num);
+    }
+
+    return factors;
+}
+
+const number = 56;
+const primeFactors = findPrimeFactors(number);
+console.log(primeFactors);  // Output: [2, 7]
+
+//133
+function isProperFraction(numerator, denominator) {
+    if (denominator === 0) {
+        return "Denominator cannot be zero";
+    }
+
+    if (numerator < denominator) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const numerator = 3;
+const denominator = 5;
+const result = isProperFraction(numerator, denominator);
+console.log(result);  // Output: true (since 3 < 5, it is a proper fraction)
+
+//134
+function reverseAlphabet(str) {
+    let result = '';
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        if (char >= 'a' && char <= 'z') {
+            let oppositeChar = String.fromCharCode(219 - char.charCodeAt(0));
+            result += oppositeChar;
+        } else {
+            result += char;
+        }
+    }
+
+    return result;
+}
+
+const inputString = "abcxyz";
+const transformedString = reverseAlphabet(inputString);
+console.log(transformedString);  // Output: "zyxcba"
+
+//135
+function removeDuplicates(str) {
+    let charCount = {};
+    let result = '';
+
+    for (let i = 0; i < str.length; i++) {
+        let char = str[i];
+        charCount[char] = (charCount[char] || 0) + 1;
+    }
+
+    for (let i = 0; i < str.length; i++) {
+        if (charCount[str[i]] === 1) {
+            result += str[i];
+        }
+    }
+
+    return result;
+}
+
+const inputString = "abacbcde";
+const transformedString = removeDuplicates(inputString);
+console.log(transformedString);  // Output: "de"
+
+//136
+function replaceFirstDigitWithDollar(str) {
+    return str.replace(/\d/, '$');
+}
+
+const inputString = "hello123";
+const transformedString = replaceFirstDigitWithDollar(inputString);
+console.log(transformedString);  // Output: "hello$23"
+
+//137
+function checkGreaterThanFifteen(num) {
+    if (num > 15) {
+        return num;
+    } else {
+        return 15;
+    }
+}
+
+const number = 10;
+const result = checkGreaterThanFifteen(number);
+console.log(result);  // Output: 15
+
+//138
+function reverseBits(num) {
+    let reversed = 0;
+    for (let i = 0; i < 16; i++) {
+        reversed = (reversed << 1) | (num & 1);
+        num >>= 1;
+    }
+
+    return reversed;
+}
+
+const num = 0b0000000000011101;
+const reversedNum = reverseBits(num);
+console.log(reversedNum.toString(2).padStart(16, '0'));  // Output: "1011100000000000"
+
+//139
+function findRightmostRoundNumber(arr) {
+    for (let i = arr.length - 1; i >= 0; i--) {
+        if (arr[i] % 10 === 0) {
+            return i + 1;
+        }
+    }
+    return 0;
+}
+
+const numbers = [12, 30, 45, 100, 56];
+const position = findRightmostRoundNumber(numbers);
+console.log(position);  // Output: 4 (since 100 is the rightmost round number)
+
+//140
+function areAllDigitsSame(num) {
+    const numStr = num.toString();
+    for (let i = 1; i < numStr.length; i++) {
+        if (numStr[i] !== numStr[0]) {
+            return false;
+        }
+    }
+    return true;
+}
+
+const number = 22222;
+const result = areAllDigitsSame(number);
+console.log(result);  // Output: true
+
+const number2 = 12345;
+const result2 = areAllDigitsSame(number2);
+console.log(result2);  // Output: false
+
+//141
+function countElementsInArrays(arr1, arr2) {
+    return {
+        arr1Count: arr1.length,
+        arr2Count: arr2.length
+    };
+}
+
+const array1 = [1, 2, 3, 4];
+const array2 = ['a', 'b', 'c'];
+
+const counts = countElementsInArrays(array1, array2);
+console.log(counts);  // Output: { arr1Count: 4, arr2Count: 3 }
+
+//142
+function simplifyPath(path) {
+    const parts = path.split('/');
+    const stack = [];
+
+    for (let part of parts) {
+        if (part === '' || part === '.') {
+            continue;
+        }
+        if (part === '..') {
+            if (stack.length > 0) {
+                stack.pop();
+            }
+        } else {
+            stack.push(part);
+        }
+    }
+
+    return '/' + stack.join('/');
+}
+
+const path = "/home/../usr/./bin/../lib";
+const simplifiedPath = simplifyPath(path);
+console.log(simplifiedPath);  // Output: "/usr/lib"
+
+//143
+function sortByLength(arr) {
+    return arr.slice().sort((a, b) => a.length - b.length);
+}
+
+const strings = ["apple", "banana", "kiwi", "grape", "pear"];
+const sortedStrings = sortByLength(strings);
+console.log(sortedStrings);  // Output: [ 'kiwi', 'pear', 'apple', 'grape', 'banana' ]
+
+//144
+function breakUrl(url) {
+    const regex = /^(https?:\/\/)?([a-zA-Z0-9.-]+)(\.org)?(\/)?$/;
+    const match = url.match(regex);
+
+    if (!match) {
+        return [];
+    }
+
+    return [
+        match[1] || '',
+        match[2] || '',
+        match[3] || '',
+        match[4] || ''
+    ];
+}
+
+// Example usage
+const url1 = "https://example.org/";
+const url2 = "http://test";
+const url3 = "example.org";
+
+console.log(breakUrl(url1));  // Output: [ 'https://', 'example', '.org', '/' ]
+console.log(breakUrl(url2));  // Output: [ 'http://', 'test', '', '' ]
+console.log(breakUrl(url3));  // Output: [ '', 'example', '.org', '' ]
+
+
+//145
+function findMaxN(a) {
+    let sum = 0;
+    let n = 0;
+
+    while (sum + (n + 1) <= a) {
+        n++;
+        sum += n;
+    }
+
+    return n;
+}
+
+const a = 15;
+const result = findMaxN(a);
+console.log(result);  // Output: 5
+
+//146
+function sumOfCubes(n) {
+    let sum = 0;
+
+    for (let i = 1; i <= n; i++) {
+        sum += i * i * i;
+    }
+
+    return sum;
+}
+
+const n = 4;
+const result = sumOfCubes(n);
+console.log(result);  // Output: 100
+
+//147
+function sumOfDigitsInString(str) {
+    let sum = 0;
+
+    for (let char of str) {
+        if (/\d/.test(char)) {
+            sum += parseInt(char);
+        }
+    }
+
+    return sum;
+}
+
+const inputString = "abc123def456";
+const result = sumOfDigitsInString(inputString);
+console.log(result);  // Output: 21 (1+2+3+4+5+6)
+
+//148
+function swapArrayHalves(arr) {
+    if (arr.length % 2 !== 0) {
+        throw new Error("The array length must be even.");
+    }
+
+    const mid = arr.length / 2;
+
+    const firstHalf = arr.slice(0, mid);
+    const secondHalf = arr.slice(mid);
+
+    return secondHalf.concat(firstHalf);
+}
+
+const arr = [1, 2, 3, 4, 5, 6];
+const swappedArr = swapArrayHalves(arr);
+console.log(swappedArr);  // Output: [4, 5, 6, 1, 2, 3]
+
+//149
+function changeCapitalization(str) {
+    let result = '';
+
+    for (let char of str) {
+        if (char === char.toUpperCase()) {
+            result += char.toLowerCase();
+        } else {
+            result += char.toUpperCase();
+        }
+    }
+
+    return result;
+}
+
+const inputString = "HeLLo WoRLd!";
+const outputString = changeCapitalization(inputString);
+console.log(outputString);  // Output: "hEllO wOrlD!"
+
+//150
+function swapAdjacentDigits(num) {
+    let numStr = num.toString();
+
+    if (numStr.length % 2 !== 0) {
+        throw new Error("The number must have an even number of digits.");
+    }
+
+    let swappedStr = '';
+
+    for (let i = 0; i < numStr.length; i += 2) {
+        swappedStr += numStr[i + 1] + numStr[i];
+    }
+
+    return parseInt(swappedStr);
+}
+
+const number = 123456;
+const swappedNumber = swapAdjacentDigits(number);
+console.log(swappedNumber);  // Output: 214365
+
 
 
 
