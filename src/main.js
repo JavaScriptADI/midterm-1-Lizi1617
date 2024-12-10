@@ -9,7 +9,7 @@ function displayCurrentDayTime() {
     const minutes = now.getMinutes().toString().padStart(2, `0`);
     const period = hours >= 12 ? "PM" : "AM";
 
-    hours = hours % 12 || 12; 
+    hours = hours % 12 || 12;
 
     const currentDayTime = (`Today is: ${day}. Current time is: ${hours} ${period}: ${minutes} : ${seconds}`);
     console.log(currentDayTime);
@@ -18,7 +18,7 @@ function displayCurrentDayTime() {
 displayCurrentDayTime();
 
 //2
-function printCurrentWindowContent(){
+function printCurrentWindowContent() {
     window.print();
 }
 
@@ -45,7 +45,7 @@ function currentDate() {
 currentDate();
 
 //4
-function calculateTriangleArea(a, b, c){
+function calculateTriangleArea(a, b, c) {
     const s = (a + b + c) / 2;
 
     const area = Math.sqrt(s * (s - a) * (s - b) * (s - c));
@@ -59,7 +59,7 @@ const area = calculateTriangleArea(a, b, c);
 console.log(`The area of the triangle with sides ${a}, ${b}, and ${c} is: ${area.toFixed(2)}`);
 
 //5
-function rotateStringRight(str){
+function rotateStringRight(str) {
     let rotatedStr = str;
 
     setInterval(() => {
@@ -73,25 +73,25 @@ rotateStringRight();
 
 //6
 function leapYear(year) {
-    if((year % 4 === 0 && year % 100 !== 0)|| (year % 400 === 0)){
+    if ((year % 4 === 0 && year % 100 !== 0) || (year % 400 === 0)) {
         return true;
     }
     return false;
 }
 
 const year = 2024;
-if(leapYear(year)){
+if (leapYear(year)) {
     console.log(`${year} is a leap year`);
 } else {
     console.log(`${year} is ot a leap year`);
 }
 
 //7
-function findSundayInYears(startYear, endYear){
+function findSundayInYears(startYear, endYear) {
     console.log("Year where January 1st is a sunday:");
-    for (let year = startYear; year <= endYear; year++){
+    for (let year = startYear; year <= endYear; year++) {
         const firstDay = new Date(year, 0, 1);
-        if(firstDay.getDay() === 0) {
+        if (firstDay.getDay() === 0) {
             console.log(year);
         }
     }
@@ -100,12 +100,12 @@ function findSundayInYears(startYear, endYear){
 findSundayInYears();
 
 //8
-function guessTheNumber(){
+function guessTheNumber() {
     const randomNum = Math.floor(Math.random() * 10) + 1;
 
     const userguess = parseInt(prompt("Guess a number between 1 and 10"), 10);
 
-    if(userguess === randomNum) {
+    if (userguess === randomNum) {
         console.log("Good Work");
     } else {
         console.log(`Not Matched. The correct was ${randomNum}.`);
@@ -115,13 +115,13 @@ function guessTheNumber(){
 guessTheNumber();
 
 //9
-function daysUntilChristmas(){
+function daysUntilChristmas() {
     const today = new Date();
     const currentYear = today.getFullYear();
 
     const Christmas = new Date(currentYear, 11, 25);
 
-    if(today > Christmas) {
+    if (today > Christmas) {
         Christmas.setFullYear(currentYear + 1);
     }
 
@@ -135,17 +135,17 @@ function daysUntilChristmas(){
 daysUntilChristmas();
 
 //10
-function calculate(){
+function calculate() {
     const num1 = parseFloat(prompt("Enter the first number:"));
     const num2 = parseFloat(prompt("Enter the second number:"));
 
-    if(isNaN(num1) || isNaN(num2)) {
+    if (isNaN(num1) || isNaN(num2)) {
         alert("Please enter valid numbers");
         return;
     }
 
     const multiplication = num1 * num2;
-    const division = num2 !== 0 ? (num1 / num2).toFixed(2): "Undefind (division by zero)";
+    const division = num2 !== 0 ? (num1 / num2).toFixed(2) : "Undefind (division by zero)";
 
     alert(`Multiplication: ${multiplication}\nDivision: ${division}`);
 }
@@ -154,11 +154,11 @@ calculate();
 
 //11
 function celsiusToFahrenheit(celsius) {
-    return (celsius * 9/5) + 32;
+    return (celsius * 9 / 5) + 32;
 }
 
 function fahrenheitToCelsius(fahrenheit) {
-    return (fahrenheit - 32) * 5/9;
+    return (fahrenheit - 32) * 5 / 9;
 }
 
 const celsius = 60;
@@ -173,7 +173,7 @@ console.log(`${fahrenheit}°F is ${celsiusResult}°C`);
 //12
 function getWebsiteURL() {
     const currentURL = window.location.href;
-    
+
     console.log("The current website URL is: " + currentURL);
 }
 
@@ -185,9 +185,9 @@ function createVariable() {
 
     if (varName && /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(varName)) {
         const value = prompt(`Enter a value for the variable ${varName}:`);
-        
+
         eval(`var ${varName} = '${value}';`);
-        
+
         console.log(`The value of ${varName} is: ${eval(varName)}`);
     } else {
         console.log("Invalid variable name.");
@@ -506,7 +506,7 @@ console.log(`The closest number to 100 is: ${result}`);
 function checkRange(num1, num2) {
     const inRange1 = (num1 >= 40 && num1 <= 60) || (num1 >= 70 && num1 <= 100);
     const inRange2 = (num2 >= 40 && num2 <= 60) || (num2 >= 70 && num2 <= 100);
-    
+
     return inRange1 && inRange2;
 }
 
@@ -537,7 +537,7 @@ console.log(`The largest number is: ${result}`);
 function checkCharacterInRange(str, char) {
     if (str.length >= 4) {
         const substring = str.slice(1, 4);
-        
+
         if (substring.includes(char)) {
             return `The character '${char}' exists between the 2nd and 4th positions.`;
         } else {
@@ -560,7 +560,7 @@ function checkLastDigit(num1, num2, num3) {
     const lastDigit1 = num1 % 10;
     const lastDigit2 = num2 % 10;
     const lastDigit3 = num3 % 10;
-    
+
     if (lastDigit1 === lastDigit2 && lastDigit2 === lastDigit3) {
         return `The last digits of the numbers are the same: ${lastDigit1}.`;
     } else {
@@ -597,14 +597,14 @@ console.log(`Modified string: ${result}`);
 function evaluateGrade(totalMarks, isFinalExam) {
     if (isFinalExam) {
         if (totalMarks >= 90) {
-            return true; 
+            return true;
         }
     } else {
         if (totalMarks >= 89 && totalMarks <= 100) {
             return true;
         }
     }
-    
+
     return false;
 }
 
@@ -711,10 +711,10 @@ console.log(`Do two or more numbers have the same rightmost digit? ${result}`);
 
 //44
 function checkCondition(num1, num2, num3) {
-    if ((num1 >= 20 && (num1 < num2 || num1 < num3)) || 
-        (num2 >= 20 && (num2 < num1 || num2 < num3)) || 
+    if ((num1 >= 20 && (num1 < num2 || num1 < num3)) ||
+        (num2 >= 20 && (num2 < num1 || num2 < num3)) ||
         (num3 >= 20 && (num3 < num1 || num3 < num2))) {
-        return true; 
+        return true;
     } else {
         return false;
     }
@@ -822,10 +822,10 @@ console.log(`Transformed string: ${transformedString}`);
 function capitalizeFirstLetter(str) {
     return str
         .split(' ')
-        .map(word => 
+        .map(word =>
             word.charAt(0).toUpperCase() + word.slice(1)
         )
-        .join(' '); 
+        .join(' ');
 }
 
 const inputString = prompt("Enter a string:");
@@ -936,7 +936,7 @@ function createUpdatedString(str) {
 }
 
 let result = createUpdatedString("JavaScript");
-console.log(result);  Output: "iptiptiptipt"
+console.log(result); Output: "iptiptiptipt"
 
 //59
 function extractFirstHalf(str) {
@@ -1120,7 +1120,7 @@ console.log(result4);// Output: "Array must contain exactly three elements."
 function checkFirstOrLast(arr) {
     if (arr.length >= 1) {
         if (arr[0] === 1 || arr[arr.length - 1] === 1) {
-            return true; 
+            return true;
         } else {
             return false;
         }
@@ -1148,7 +1148,7 @@ console.log(result5); // Output: "Array must have at least one element."
 function checkFirstAndLast(arr) {
     if (arr.length === 3) {
         if (arr[0] === arr[arr.length - 1]) {
-            return true; 
+            return true;
         } else {
             return false;
         }
@@ -1366,14 +1366,14 @@ function shiftToNextChar(str) {
         let char = str[i];
 
         if (char === 'z') {
-            result += 'a'; 
+            result += 'a';
         } else if (char === 'Z') {
-            result += 'A'; 
+            result += 'A';
         } else if (char.match(/[a-zA-Z]/)) {
             let charCode = str.charCodeAt(i);
             result += String.fromCharCode(charCode + 1);
         } else {
-            result += char; 
+            result += char;
         }
     }
 
@@ -1403,6 +1403,1081 @@ const array = [1, 2, 3, 4, 5, 6];
 console.log(divideAndSum(array)); // Output: [9, 12]
 
 //86
+function findAngleType(angle) {
+    if (angle > 0 && angle < 90) {
+        return "Acute angle";
+    } else if (angle === 90) {
+        return "Right angle";
+    } else if (angle > 90 && angle < 180) {
+        return "Obtuse angle";
+    } else if (anle === 180) {
+        return "Straght angle";
+    } else {
+        return "Invalid angle";
+    }
+}
+
+const angle = 120;
+console.log(`The angle ${angle} is a ${findAngleType(angle)}`);
+
+//87
+function areSimilar(arr1, arr2) {
+    if (arr1.length !== arr2.length) {
+        return false;
+    }
+
+    if (arr1.toString() === arr2.toString()) {
+        return true;
+    }
+
+    const diffIndices = [];
+    for (let i = 0; i < arr1.length; i++) {
+        if (arr1[i] !== arr2[i]) {
+            diffIndices.push(i);
+        }
+    }
+
+    if (diffIndices.length > 2) {
+        return false;
+    }
+
+    if (diffIndices.length === 2) {
+        const [i, j] = diffIndices;
+        const swappedArr = [...arr2];
+        [swappedArr[i], swappedArr[j]] = [swappedArr[j], swappedArr[i]];
+        return arr1.toString() === swappedArr.toString();
+    }
+
+    return false;
+}
+
+const arr1 = [1, 2, 3];
+const arr2 = [2, 1, 3];
+console.log(areSimilar(arr1, arr2)); // Output: true
+
+const arr3 = [1, 2, 3];
+const arr4 = [3, 1, 2];
+console.log(areSimilar(arr3, arr4)); // Output: false
+
+//88
+function areIntegersSimilar(a, b, divisor) {
+    const dividesBoth = a % divisor === 0 && b % divisor === 0;
+    const dividesNeither = a % divisor !== 0 && b % divisor !== 0;
+    return dividesBoth || dividesNeither;
+}
+
+const num1 = 10;
+const num2 = 20;
+const divisor = 5;
+
+if (areIntegersSimilar(num1, num2, divisor)) {
+    console.log(`${num1} and ${num2} are similar with divisor ${divisor}.`);
+} else {
+    console.log(`${num1} and ${num2} are not similar with divisor ${divisor}.`);
+}
+
+const num3 = 12;
+const num4 = 25;
+const divisor2 = 5;
+
+if (areIntegersSimilar(num3, num4, divisor2)) {
+    console.log(`${num3} and ${num4} are similar with divisor ${divisor2}.`);
+} else {
+    console.log(`${num3} and ${num4} are not similar with divisor ${divisor2}.`);
+}
+
+//89
+function canReplaceOperator(x, y, z) {
+    if (x + y === z) {
+        return "+";
+    }
+    if (x - y === z) {
+        return "-";
+    }
+    if (x * y === z) {
+        return "*";
+    }
+    if (y !== 0 && x / y === z) {
+        return "/";
+    }
+
+    return "None";
+}
+
+const x = 10, y = 30, z = 300;
+const operator = canReplaceOperator(x, y, z);
+
+if (operator !== "None") {
+    console.log(`You can replace $ with '${operator}' to make the expression ${x} ${operator} ${y} = ${z} true.`);
+} else {
+    console.log(`No valid operator can replace $ to satisfy the expression ${x} $ ${y} = ${z}.`);
+}
+
+const x2 = 15, y2 = 5, z2 = 20;
+const operator2 = canReplaceOperator(x2, y2, z2);
+
+if (operator2 !== "None") {
+    console.log(`You can replace $ with '${operator2}' to make the expression ${x2} ${operator2} ${y2} = ${z2} true.`);
+} else {
+    console.log(`No valid operator can replace $ to satisfy the expression ${x2} $ ${y2} = ${z2}.`);
+}
+
+//90
+function findKthGreatest(arr, k) {
+    if (k > arr.length || k <= 0) {
+        return "Invalid input: k is out of range.";
+    }
+    const sortedArray = [...arr].sort((a, b) => b - a);
+
+    return sortedArray[k - 1];
+}
+
+const array = [3, 1, 4, 1, 5, 9, 2, 6];
+const k = 3;
+
+const kthGreatest = findKthGreatest(array, k);
+console.log(`The ${k}rd greatest element in the array is: ${kthGreatest}`);
+
+//91
+function maxConsecutiveSum(arr, k) {
+    if (k > arr.length || k <= 0) {
+        return "Invalid input: k is out of range.";
+    }
+
+    let maxSum = 0;
+    for (let i = 0; i < k; i++) {
+        maxSum += arr[i];
+    }
+
+    let currentSum = maxSum;
+    for (let i = k; i < arr.length; i++) {
+        currentSum += arr[i] - arr[i - k];
+        maxSum = Math.max(maxSum, currentSum);
+    }
+
+    return maxSum;
+}
+
+const array = [1, 3, 5, 7, 9, 2];
+const k = 3;
+
+const maxSum = maxConsecutiveSum(array, k);
+console.log(`The maximum sum of ${k} consecutive numbers in the array is: ${maxSum}`);
+
+//92
+function maxAdjacentDifference(arr) {
+    if (arr.length < 2) {
+        return "Array must have at least two elements.";
+    }
+
+    let maxDifference = 0;
+
+    for (let i = 1; i < arr.length; i++) {
+        const difference = Math.abs(arr[i] - arr[i - 1]);
+        maxDifference = Math.max(maxDifference, difference);
+    }
+
+    return maxDifference;
+}
+
+const array = [2, 9, 3, 15, 8, 7];
+const result = maxAdjacentDifference(array);
+
+console.log(`The maximum difference between any two adjacent elements is: ${result}`);
+
+//93
+function maxDifference(arr) {
+    if (arr.length < 2) {
+        return "Array must have at least two elements.";
+    }
+
+    const minElement = Math.min(...arr);
+    const maxElement = Math.max(...arr);
+
+    return maxElement - minElement;
+}
+
+const array = [2, 9, 3, 15, 8, 7];
+const result = maxDifference(array);
+
+console.log(`The maximum difference among all possible pairs is: ${result}`);
+
+//94
+function findMostFrequentNumber(arr) {
+    if (arr.length === 0) {
+        return "Array is empty.";
+    }
+
+    const frequencyMap = {};
+    let maxFrequency = 0;
+    let mostFrequentNumber = null;
+
+    for (const num of arr) {
+        frequencyMap[num] = (frequencyMap[num] || 0) + 1;
+
+        if (frequencyMap[num] > maxFrequency) {
+            maxFrequency = frequencyMap[num];
+            mostFrequentNumber = num;
+        }
+    }
+
+    return mostFrequentNumber;
+}
+
+const array = [1, 3, 2, 3, 4, 5, 3, 2, 1];
+const result = findMostFrequentNumber(array);
+
+console.log(`The number appearing most frequently is: ${result}`);
+
+//95
+function replaceNumber(arr, target, replacement) {
+    return arr.map(num => (num === target ? replacement : num));
+}
+
+const array = [1, 2, 3, 4, 2, 5, 2];
+const target = 2;
+const replacement = 9;
+
+const updatedArray = replaceNumber(array, target, replacement);
+console.log(`Original array: ${array}`);
+console.log(`Updated array: ${updatedArray}`);
+
+//96
+function sumOfAbsoluteDifferences(arr) {
+    let sum = 0;
+    for (let i = 1; i < arr.length; i++) {
+        sum += Math.abs(arr[i] - arr[i - 1]);
+    }
+    return sum;
+}
+
+const arr = [1, 3, 5, 9, 2];
+const result = sumOfAbsoluteDifferences(arr);
+console.log("Sum of absolute differences:", result);
+
+//97
+function shortestPalindrome(str) {
+    function isPalindrome(s) {
+        return s === s.split('').reverse().join('');
+    }
+
+    if (isPalindrome(str)) return str;
+
+    for (let i = str.length - 1; i >= 0; i--) {
+        let prefix = str.slice(0, i);
+        let suffix = str.slice(i);
+
+        if (isPalindrome(suffix)) {
+            return str + prefix.split('').reverse().join('');
+        }
+    }
+}
+
+const inputStr = "aacecaaa";
+const result = shortestPalindrome(inputStr);
+console.log("Shortest palindrome string:", result);
+
+//98
+function changeCase(str) {
+    let upperCaseCount = 0;
+    let lowerCaseCount = 0;
+
+    for (let i = 0; i < str.length; i++) {
+        if (str[i] === str[i].toUpperCase()) {
+            upperCaseCount++;
+        } else {
+            lowerCaseCount++;
+        }
+    }
+
+    if (upperCaseCount > lowerCaseCount) {
+        return str.toUpperCase();
+    } else {
+        return str.toLowerCase();
+    }
+}
+
+const str1 = "Write";
+const str2 = "PHp";
+console.log(changeCase(str1)); // Output: write
+console.log(changeCase(str2)); // Output: PHP
+
+//99
+function canRearrange(str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+
+    let sortedStr1 = str1.split('').sort().join('');
+    let sortedStr2 = str2.split('').sort().join('');
+
+    return sortedStr1 === sortedStr2;
+}
+
+const str1 = "listen";
+const str2 = "silent";
+console.log(canRearrange(str1, str2)); // Output: true
+
+const str3 = "hello";
+const str4 = "world";
+console.log(canRearrange(str3, str4)); // Output: false
+
+//100
+function hasCommonElement(arr1, arr2) {
+    let i = 0;
+    let j = 0;
+
+    while (i < arr1.length && j < arr2.length) {
+        if (arr1[i] === arr2[j]) {
+            return true;
+        }
+        else if (arr1[i] < arr2[j]) {
+            i++;
+        }
+        else {
+            j++;
+        }
+    }
+    return false;
+}
+
+const arr1 = [1, 3, 5, 7];
+const arr2 = [2, 3, 6, 8];
+console.log(hasCommonElement(arr1, arr2)); // Output: true
+
+const arr3 = [1, 2, 3];
+const arr4 = [4, 5, 6];
+console.log(hasCommonElement(arr3, arr4)); // Output: false
+
+//101
+function isValidString(str) {
+    if (!/^[A-Za-z]+$/.test(str)) {
+        return false;
+    }
+
+    for (let i = 1; i < str.length; i++) {
+        if ((str[i].toUpperCase() === str[i] && str[i - 1].toUpperCase() === str[i - 1]) ||
+            (str[i].toLowerCase() === str[i] && str[i - 1].toLowerCase() === str[i - 1])) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+const str1 = "aBcDeFg";
+console.log(isValidString(str1)); // Output: true
+
+const str2 = "aABcD";
+console.log(isValidString(str2)); // Output: false
+
+const str3 = "abcde";
+console.log(isValidString(str3)); // Output: false
+
+const str4 = "AbCdEf";
+console.log(isValidString(str4)); // Output: true
+
+//102
+function countInversions(arr) {
+    let inversions = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[i] > arr[j]) {
+                inversions++;
+            }
+        }
+    }
+
+    return inversions;
+}
+
+const arr1 = [1, 3, 2, 3, 1];
+console.log(countInversions(arr1)); // Output: 4
+
+const arr2 = [5, 4, 3, 2, 1];
+console.log(countInversions(arr2)); // Output: 10
+
+//103
+function maxNumberByDeletingOneDigit(n) {
+    let numStr = n.toString();
+    let maxNum = -Infinity;
+
+    for (let i = 0; i < numStr.length; i++) {
+        let newNum = numStr.slice(0, i) + numStr.slice(i + 1);
+        maxNum = Math.max(maxNum, parseInt(newNum));
+    }
+
+    return maxNum;
+}
+
+const num1 = 12345;
+console.log(maxNumberByDeletingOneDigit(num1)); // Output: 2345
+
+const num2 = 54321;
+console.log(maxNumberByDeletingOneDigit(num2)); // Output: 5432
+
+const num3 = 9876;
+console.log(maxNumberByDeletingOneDigit(num3)); // Output: 987
+
+//104
+function findClosestPair(arr, target) {
+    arr.sort((a, b) => a - b);
+
+    let closestPair = [];
+    let closestDiff = Infinity;
+
+    let i = 0, j = arr.length - 1;
+
+    while (i < j) {
+        let diff = Math.abs(arr[i] - arr[j]);
+
+        if (diff <= target) {
+            if (Math.abs(diff - target) < Math.abs(closestDiff - target)) {
+                closestPair = [arr[i], arr[j]];
+                closestDiff = diff;
+            }
+            i++;
+        } else {
+            j--;
+        }
+    }
+
+    return closestPair;
+}
+
+const arr = [1, 5, 9, 14, 20];
+const target = 7;
+const result = findClosestPair(arr, target);
+console.log(`Closest pair: ${result[0]} and ${result[1]}`); // Output: Closest pair: 9 and 14
+
+//105
+function sumOfDigits(num) {
+    let sum = 0;
+    // Calculate the sum of digits of the number
+    while (num > 0) {
+        sum += num % 10;
+        num = Math.floor(num / 10);
+    }
+    return sum;
+}
+
+function countReplacements(num) {
+    let count = 0;
+
+    while (num >= 10) {
+        num = sumOfDigits(num);
+        count++;
+    }
+
+    return count;
+}
+
+const num1 = 9876;
+console.log(countReplacements(num1)); // Output: 2 (9876 -> 30 -> 3)
+
+const num2 = 12345;
+console.log(countReplacements(num2)); // Output: 2 (12345 -> 15 -> 6)
+
+const num3 = 9;
+console.log(countReplacements(num3)); // Output: 0 (No replacement needed, it's already a single-digit number)
+
+//106
+function divideUntilNotInteger(num, divisor) {
+    if (divisor === 0) {
+        return "Division by zero is not allowed";
+    }
+
+    while (Number.isInteger(num / divisor)) {
+        num = num / divisor;
+    }
+
+    return num;
+}
+
+const result1 = divideUntilNotInteger(100, 2);
+console.log(result1); // Output: 6.25 (100 -> 50 -> 25 -> 12.5, stops at 12.5)
+
+const result2 = divideUntilNotInteger(27, 3);
+console.log(result2); // Output: 1 (27 -> 9 -> 3 -> 1)
+
+const result3 = divideUntilNotInteger(20, 3);
+console.log(result3); // Output: 20 (can't divide evenly, so returns 20 immediately)
+
+//107
+function countDivisiblePairs(arr) {
+    let count = 0;
+
+    for (let i = 0; i < arr.length; i++) {
+        for (let j = i + 1; j < arr.length; j++) {
+            if (arr[j] % arr[i] === 0 || arr[i] % arr[j] === 0) {
+                count++;
+            }
+        }
+    }
+
+    return count;
+}
+
+const arr1 = [1, 3, 2];
+console.log(countDivisiblePairs(arr1)); // Output: 2 (pairs: (1, 3), (1, 2))
+
+const arr2 = [2, 4, 6];
+console.log(countDivisiblePairs(arr2)); // Output: 2 (pairs: (2, 4), (2, 6))
+
+const arr3 = [2, 4, 16];
+console.log(countDivisiblePairs(arr3)); // Output: 3 (pairs: (2, 4), (2, 16), (4, 16))
+
+//108
+function dotProduct(vector1, vector2) {
+    if (vector1.length !== 3 || vector2.length !== 3) {
+        console.log("Both vectors must have 3 components.");
+        return null;
+    }
+
+    let dotProductResult = 0;
+    for (let i = 0; i < 3; i++) {
+        dotProductResult += vector1[i] * vector2[i];
+    }
+
+    return dotProductResult;
+}
+
+const vector1 = [1, 2, 3];
+const vector2 = [4, 5, 6];
+
+const result = dotProduct(vector1, vector2);
+console.log("The dot product is:", result);
+
+//109
+function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i <= Math.sqrt(num); i++) {
+        if (num % i === 0) {
+            return false;
+        }
+    }
+    return true;
+}
+
+function getPrimeNumbersUpTo(n) {
+    const primeNumbers = [];
+
+    for (let i = 2; i <= n; i++) {
+        if (isPrime(i)) {
+            primeNumbers.push(i);
+        }
+    }
+
+    return primeNumbers.sort((a, b) => a - b);
+}
+
+const upperLimit = 30;
+const primes = getPrimeNumbersUpTo(upperLimit);
+console.log("Prime numbers up to", upperLimit, "are:", primes);
+
+//110
+function countEvenBeforeGivenNumber(sequence, target) {
+    let count = 0;
+    let foundTarget = false;
+
+    for (let i = 0; i < sequence.length; i++) {
+        if (sequence[i] === target) {
+            foundTarget = true;
+            break;
+        }
+        if (sequence[i] % 2 === 0) {
+            count++;
+        }
+    }
+
+    if (!foundTarget) {
+        console.log("Target number not found in the sequence.");
+    }
+
+    return count;
+}
+
+const sequence = [1, 4, 6, 8, 3, 10, 2];
+const target = 3;
+const result = countEvenBeforeGivenNumber(sequence, target);
+console.log("Number of even values before", target, "is:", result);
+
+//111
+function findThirdNumber(a, b, c) {
+    if (a === b) {
+        return c;
+    } else if (a === c) {
+        return b;
+    } else if (b === c) {
+        return a;
+    } else {
+        return "No two numbers are equal";
+    }
+}
+
+const num1 = 5;
+const num2 = 5;
+const num3 = 8;
+
+const thirdNumber = findThirdNumber(num1, num2, num3);
+console.log("The third number is:", thirdNumber);
+
+//112
+function countTrailingZeros(n) {
+    let count = 0;
+
+    while (n >= 5) {
+        n = Math.floor(n / 5);
+        count += n;
+    }
+
+    return count;
+}
+
+
+const num = 100;
+const trailingZeros = countTrailingZeros(num);
+console.log(`The number of trailing zeros in ${num}! is:`, trailingZeros);
+
+//113
+function calculateSeriesSum(n) {
+    let sum = 0;
+    let currentTerm = n;
+
+    while (currentTerm >= 1) {
+        sum += currentTerm;
+        currentTerm = Math.floor(currentTerm / 2);
+    }
+
+    return sum;
+}
+
+const n = 16;
+const result = calculateSeriesSum(n);
+console.log("The sum of the series is:", result);
+
+//114
+function isCorrectSentence(sentence) {
+    if (sentence.charAt(0) === sentence.charAt(0).toUpperCase() && sentence.endsWith('.')) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+const sentence1 = "This is a correct sentence.";
+const sentence2 = "this is incorrect.";
+const sentence3 = "Another one without a full stop";
+
+console.log(isCorrectSentence(sentence1)); // true
+console.log(isCorrectSentence(sentence2)); // false
+console.log(isCorrectSentence(sentence3)); // false
+
+//115
+function isDiagonalMatrix(matrix) {
+    for (let i = 0; i < matrix.length; i++) {
+        for (let j = 0; j < matrix[i].length; j++) {
+            if (i !== j && matrix[i][j] !== 0) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+const matrix1 = [
+    [1, 0, 0],
+    [0, 2, 0],
+    [0, 0, 3]
+];
+
+const matrix2 = [
+    [1, 0, 0],
+    [0, 2, 3],
+    [0, 0, 3]
+];
+
+console.log(isDiagonalMatrix(matrix1)); // true
+console.log(isDiagonalMatrix(matrix2)); // false
+
+//116
+function findDivisibleByThreeOptions(str) {
+    const options = [];
+    const hashIndex = str.indexOf('#');
+
+    for (let digit = 0; digit <= 9; digit++) {
+        const replacedString = str.replace('#', digit.toString());
+        const number = parseInt(replacedString, 10);
+        if (number % 3 === 0) {
+            options.push(replacedString);
+        }
+    }
+
+    return options;
+}
+
+const input = "2#0";
+const result = findDivisibleByThreeOptions(input);
+console.log(result); // Output: ["210", "240", "270"]
+
+//117
+function isIdentityMatrix(matrix) {
+    const n = matrix.length;
+    for (let i = 0; i < n; i++) {
+        if (matrix[i].length !== n) {
+            return false;
+        }
+    }
+
+    for (let i = 0; i < n; i++) {
+        for (let j = 0; j < n; j++) {
+            if (i === j && matrix[i][j] !== 1) {
+                return false;
+            } else if (i !== j && matrix[i][j] !== 0) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+
+const matrix1 = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [0, 0, 1]
+];
+
+const matrix2 = [
+    [1, 0, 0],
+    [0, 1, 0],
+    [1, 0, 1]
+];
+
+console.log(isIdentityMatrix(matrix1)); // true
+console.log(isIdentityMatrix(matrix2)); // false
+
+//118
+function isInRange(number, min, max) {
+    return number >= min && number <= max;
+}
+
+const num = 5;
+const min = 1;
+const max = 10;
+
+const result = isInRange(num, min, max);
+console.log(`${num} is in range [${min}, ${max}]:`, result);
+
+//119
+function hasIncreasingSequence(num) {
+    const numStr = num.toString();
+
+    for (let i = 1; i < numStr.length; i++) {
+        if (numStr[i] < numStr[i - 1]) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+const num1 = 12345;
+const num2 = 54321;
+const num3 = 11234;
+
+console.log(hasIncreasingSequence(num1)); // true
+console.log(hasIncreasingSequence(num2)); // false
+console.log(hasIncreasingSequence(num3)); // true
+
+//120
+function isPointInsideCircle(x, y, r, a, b) {
+    const distance = Math.sqrt(Math.pow(a - x, 2) + Math.pow(b - y, 2));
+
+    return distance < r;
+}
+
+const centerX = 0;
+const centerY = 0;
+const radius = 5;
+const pointX = 3;
+const pointY = 4;
+
+const result = isPointInsideCircle(centerX, centerY, radius, pointX, pointY);
+console.log(`The point (${pointX}, ${pointY}) is inside the circle:`, result);
+
+//121
+function isLowerTriangularMatrix(matrix) {
+    const n = matrix.length;
+
+    for (let i = 0; i < n; i++) {
+        for (let j = i + 1; j < n; j++) {
+            if (matrix[i][j] !== 0) {
+                return false;
+            }
+        }
+    }
+    return true;
+}
+
+const matrix1 = [
+    [1, 0, 0],
+    [4, 2, 0],
+    [7, 5, 3]
+];
+
+const matrix2 = [
+    [1, 0, 0],
+    [4, 2, 3],
+    [7, 5, 3]
+];
+
+console.log(isLowerTriangularMatrix(matrix1)); // true
+console.log(isLowerTriangularMatrix(matrix2)); // false
+
+//122
+function checkSequence(arr) {
+    if (arr.length < 2) {
+        return "The array is too short to determine a sequence.";
+    }
+
+    let isIncreasing = true;
+    let isDecreasing = true;
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i] <= arr[i - 1]) {
+            isIncreasing = false;
+        }
+        if (arr[i] >= arr[i - 1]) {
+            isDecreasing = false;
+        }
+    }
+
+    if (isIncreasing) {
+        return "Strictly Increasing Sequence";
+    } else if (isDecreasing) {
+        return "Strictly Decreasing Sequence";
+    } else {
+        return "Neither Increasing Nor Decreasing Sequence";
+    }
+}
+
+const arr1 = [1, 2, 3, 4, 5];  // Strictly Increasing
+const arr2 = [5, 4, 3, 2, 1];  // Strictly Decreasing
+const arr3 = [1, 3, 2, 5, 4];  // Neither strictly increasing nor decreasing
+
+console.log(checkSequence(arr1)); // "Strictly Increasing Sequence"
+console.log(checkSequence(arr2)); // "Strictly Decreasing Sequence"
+console.log(checkSequence(arr3)); // "Neither Increasing Nor Decreasing Sequence"
+
+//123
+function isPermutation(arr, n) {
+    if (arr.length !== n) {
+        return false;
+    }
+
+    const numSet = new Set(arr);
+
+    if (numSet.size !== n) {
+        return false;
+    }
+
+    for (let i = 1; i <= n; i++) {
+        if (!numSet.has(i)) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+const arr1 = [4, 1, 3, 2];
+const arr2 = [4, 1, 2, 2];
+const arr3 = [1, 2, 3, 5];
+
+console.log(isPermutation(arr1, 4)); // true
+console.log(isPermutation(arr2, 4)); // false (duplicate 2)
+console.log(isPermutation(arr3, 4)); // false (missing 4)
+
+//124
+function logical_Nor(x, y) {
+    return !(x || y);
+}
+
+const x1 = true;
+const y1 = false;
+console.log(`logical_Nor(${x1}, ${y1}) = ${logical_Nor(x1, y1)}`); // false
+
+const x2 = false;
+const y2 = false;
+console.log(`logical_Nor(${x2}, ${y2}) = ${logical_Nor(x2, y2)}`); // true
+
+//125
+function findLongestString(arr) {
+    if (arr.length === 0) {
+        return "Array is empty";
+    }
+
+    let longestString = arr[0];
+
+    for (let i = 1; i < arr.length; i++) {
+        if (arr[i].length > longestString.length) {
+            longestString = arr[i];
+        }
+    }
+
+    return longestString;
+}
+
+const array1 = ["apple", "banana", "grape", "watermelon"];
+const array2 = ["cat", "dog", "elephant"];
+const array3 = [];
+
+console.log(findLongestString(array1)); // "watermelon"
+console.log(findLongestString(array2)); // "elephant"
+console.log(findLongestString(array3)); // "Array is empty"
+
+//126
+function largestEvenNumber(arr) {
+    let largestEven = null;
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i] % 2 === 0) {
+            if (largestEven === null || arr[i] > largestEven) {
+                largestEven = arr[i];
+            }
+        }
+    }
+
+    return largestEven !== null ? largestEven : "No even number found";
+}
+
+const array1 = [1, 3, 4, 6, 8, 2];
+const array2 = [11, 13, 15];
+const array3 = [10, 20, 30, 40, 50];
+
+console.log(largestEvenNumber(array1)); // 8
+console.log(largestEvenNumber(array2)); // "No even number found"
+console.log(largestEvenNumber(array3)); // 50
+
+//127
+function reverseBits(n) {
+    let reversed = 0;
+
+    while (n > 0) {
+        reversed = (reversed << 1) | (n & 1);
+        n >>= 1;
+    }
+
+    return reversed;
+}
+
+console.log(reverseBits(14));  // 112
+console.log(reverseBits(56));  // 28
+console.log(reverseBits(234)); // 87
+
+//128
+function smallestRoundNumber(value) {
+    let factor = 10;
+    while (value % factor !== 0) {
+        factor *= 10;
+    }
+
+    return Math.ceil(value / factor) * factor;
+}
+
+console.log(smallestRoundNumber(590)); // 600
+console.log(smallestRoundNumber(592)); // 600
+console.log(smallestRoundNumber(2500)); // 2500
+console.log(smallestRoundNumber(12345)); // 20000
+
+//129
+function isPrime(num) {
+    if (num <= 1) return false;
+    for (let i = 2; i * i <= num; i++) {
+        if (num % i === 0) return false;
+    }
+    return true;
+}
+
+function smallestPrimeGreaterThan(n) {
+    let num = n + 1;
+    while (!isPrime(num)) {
+        num++;
+    }
+    return num;
+}
+
+console.log(smallestPrimeGreaterThan(10)); // 11
+console.log(smallestPrimeGreaterThan(15)); // 17
+console.log(smallestPrimeGreaterThan(20)); // 23
+console.log(smallestPrimeGreaterThan(30)); // 31
+
+//130
+function countEvenDigits(n) {
+    let count = 0;
+    let str = Math.abs(n).toString();
+
+    for (let i = 0; i < str.length; i++) {
+        let digit = parseInt(str[i], 10);
+        if (digit % 2 === 0) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+console.log(countEvenDigits(123456));  // 3 (Even digits: 2, 4, 6)
+console.log(countEvenDigits(9876543210));  // 5 (Even digits: 8, 6, 4, 2, 0)
+console.log(countEvenDigits(13579));  // 0 (No even digits)
+console.log(countEvenDigits(-24680));  // 5 (Even digits: 2, 4, 6, 8, 0)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
